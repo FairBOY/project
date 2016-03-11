@@ -1,0 +1,34 @@
+<% if current_user.role == "user" %>
+<%= render partial: "orders/partials/show_for_user" %>
+<% else %>
+<div class="row">
+  <div class="col-md-offset-4 col-md-4">
+    <div class="thumbnail">
+      <div class="caption">
+        <h3>Dane użytkownika</h3>
+        <p><b>ID:</b> <%= @order.user_id %></p>
+        <p><b>Imię:</b> <%= @order.user.first_name %></p>
+        <p><b>Nazwisko:</b> <%= @order.user.last_name %></p>
+        <p><b>E-mail:</b> <%= @order.user.email %></p>
+        <p><b>Telefon:</b> <%= @order.user.phone %></p>
+        <p><b>Adres:</b> <%= @order.user.address %></p>
+        <h3>Dane pracowników</h3>
+        <p><b>ID serwisanta:</b> <%= @order.service_id %></p>
+        <p><b>ID pracownika:</b> <%= @order.repair_id %></p>
+        <h3>Dane zamówienia</h3>
+        <p><b>Opis:</b> <%= @order.description %></p>
+        <p><b>Uwagi:</b> <%= @order.repair_attention %></p>
+        <p><b>Data złożenia:</b> <%= @order.created_at %></p>
+        <p><b>Data przyjęcia:</b> <%= @order.date_of_adoption %></p>
+        <p><b>Data realizowania:</b> <%= @order.date_of_repair %></p>
+        <p><b>Data zakończenia:</b> <%= @order.repair_end_date %></p>
+        <p><b>Termin:</b> <%= @order.term %> dni</p>
+        <p><b>Status:</b> <%= @order.status %></p>
+        <p><b>Cena:</b> <%= @order.price %></p>
+        <%= link_to "Edytuj", edit_order_path(@order), class: "btn btn-warning" %>
+        <%= link_to "Zamówienia", orders_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

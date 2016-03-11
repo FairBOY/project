@@ -1,0 +1,38 @@
+<div class="jumbotron">
+<div id="mydiv">
+  <h1>Witamy w serwisie komputerowym!</h1>
+  <% if !user_signed_in? %>
+  <h2>Aby złożyć zamówienie musisz się załogować!</h2>
+  <%= link_to "Zaloguj się", new_user_session_path, class: "btn btn-primary" %>
+  <% end %>
+</div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="images/monitor.png" alt="komputer">
+      <div id="mydiv">
+        <h3>Naprawiamy komputery!</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="images/tablet.jpg" alt="tablet">
+      <div id="mydiv">
+        <h3>Naprawiamy tablety!</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="images/phone.png" alt="smartfon">
+      <div id="mydiv">
+        <h3>Naprawiamy smartfony!</h3>
+      </div>
+    </div>
+  </div>
+</div>

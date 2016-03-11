@@ -1,0 +1,60 @@
+<%= form_for @user do |f| %>
+
+<div class="form-group">
+  <label for="inputEmail3" class="col-md-offset-4 col-md-4">E-mail:</label>
+  <div class="col-md-offset-4 col-md-4">
+  <%= f.email_field :email, class: "form-control" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="inputPassword3" class="col-md-offset-4 col-md-4">Hasło:</label>
+  <div class="col-md-offset-4 col-md-4">
+  <%= f.password_field :password, class: "form-control" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-offset-4 col-md-4">Imię:</label>
+  <div class="col-md-offset-4 col-md-4">
+  <%= f.text_field :first_name, class: "form-control" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-offset-4 col-md-4">Nazwisko:</label>
+  <div class="col-md-offset-4 col-md-4">
+  <%= f.text_field :last_name, class: "form-control" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-offset-4 col-md-4">Adres:</label>
+  <div class="col-md-offset-4 col-md-4">
+  <%= f.text_field :address, class: "form-control" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-offset-4 col-md-4">Telefon:</label>
+  <div class="col-md-offset-4 col-md-4">
+  <%= f.text_field :phone, class: "form-control" %>
+  </div>
+</div>
+
+<% if current_user.role == 'admin'  %>
+<div class="form-group">
+  <label class="col-md-offset-4 col-md-4">Rola:</label>
+  <div class="col-md-offset-4 col-md-4">
+  <%= f.select(:role, options_for_select([['Wybierz rolę', @user.role], ['Użytkownik', 'user'], ['Serwisant', 'service'], ['Pracownik', 'repair'], ['Admin', 'admin']])) %>
+  </div>
+</div>
+<% end %>
+
+<div class="form-group">
+    <div class="col-md-offset-4 col-md-4">
+    <br />
+		<%= f.submit "Zapisz", class: "btn btn-success col-md-12" %>
+    </div>
+</div>
+<% end %>

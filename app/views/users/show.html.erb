@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-md-offset-4 col-md-4">
+    <div class="thumbnail">
+      <div id="mydiv">
+        <h3>Dane użytkownika</h3>
+        <p><b>ID:</b> <%= @user.id %></p>
+        <p><b>E-mail:</b> <%= @user.email %></p>
+        <p><b>Imię:</b> <%= @user.first_name %></p>
+        <p><b>Nazwisko:</b> <%= @user.last_name %></p>
+        <p><b>Adres:</b> <%= @user.address %></p>
+        <p><b>Telefon:</b> <%= @user.phone %></p>
+        <% if current_user.role == "admin" or current_user.role == "service" or current_user.role == "repair" %>
+        <p><b>Rola:</b> <%= @user.role %></p>
+        <% end %>
+        <% if current_user.role == "admin" %>
+        <%= link_to "Edytuj", edit_user_path(@user), class: "btn btn-warning" %>
+        <%= link_to "Użytkowniki", users_path, class: "btn btn-primary" %>
+        <% else %>
+        <%= link_to "Użytkowniki", users_path, class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

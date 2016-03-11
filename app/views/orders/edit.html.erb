@@ -1,0 +1,15 @@
+<% if current_user.role == "user" %>
+<%= render partial: "orders/partials/edit_for_user" %>
+<% end %>
+
+<% if current_user.role == "admin" %>
+<%= render partial: "orders/partials/edit_for_admin" %>
+<% end %>
+
+<% if current_user.role == "service" %>
+<%= render partial: "orders/partials/edit_for_service" %>
+<% end %>
+
+<% if current_user.role == "repair" %>
+<%= render partial: "orders/partials/edit_for_repair" %>
+<% end %>

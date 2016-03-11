@@ -1,0 +1,81 @@
+<h1 class="col-md-offset-4 col-md-4">Edytuj zamówienie</h1>
+<%= form_for @order do |f| %>
+<div class="form-group">
+  <label class="col-md-offset-4 col-md-4">Typ urządzenia:</label>
+  <div class="col-md-offset-4 col-md-4">
+  <%= f.text_field :type_of_device, class: "form-control" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-offset-4 col-md-4">Producent:</label>
+  <div class="col-md-offset-4 col-md-4">
+  <%= f.text_field :manufacturer, class: "form-control" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-offset-4 col-md-4">Model:</label>
+  <div class="col-md-offset-4 col-md-4">
+  <%= f.text_field :model, class: "form-control" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-offset-4 col-md-4">Numer seryjny:</label>
+  <div class="col-md-offset-4 col-md-4">
+  <%= f.text_field :serial_number, class: "form-control" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-offset-4 col-md-4">Uwagi:</label>
+  <div class="col-md-offset-4 col-md-4">
+  <%= f.text_area :repair_attention, class: "form-control" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-offset-4 col-md-4">Cena:</label>
+  <div class="col-md-offset-4 col-md-4">
+  <%= f.text_field :price, class: "form-control" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-offset-4 col-md-4">Status:</label>
+  <div class="col-md-offset-4 col-md-4">
+  <%= f.select(:status, options_for_select([['Wybierz status', @order.status], ['W realizacji', 'w realizacji'], ['Zrealizowane', 'zrealizowane'], ['Anulowane', 'anulowane']])) %>
+  </div>
+</div>
+
+<div class="form-group">
+    <div class="col-md-offset-4 col-md-4">
+    <br />
+    <%= f.submit "Zapisz", class: "btn btn-success col-md-12" %>
+    </div>
+</div>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

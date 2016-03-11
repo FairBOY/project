@@ -1,0 +1,36 @@
+<h1>Moje zamówienia</h1>
+
+<% if @orders.empty? %>
+<b>Niema zamóweiń</b>
+<% else %>
+<table class="table table-hover">
+	<tr>
+		<th>ID</th>
+		<th>Opis</th>
+		<th>Typ urządzenia</th>
+		<th>Producent</th>
+		<th>Model</th>
+		<th>Numer seryjny</th>
+		<th>Status</th>
+		<th></th>
+		<th></th>
+	</tr>
+
+	<% @orders.each do |f| %>
+
+	<tr>
+		<td><%= f.id %></td>
+		<td><%= f.description %></td>
+		<td><%= f.type_of_device %></td>
+		<td><%= f.manufacturer %></td>
+		<td><%= f.model %></td>
+		<td><%= f.serial_number %></td>
+		<td><%= f.status %></td>
+		<td><%= link_to "Pokaż", order_path(f), class: "btn btn-info" %></td>
+		<td><%= link_to "Edytuj", edit_order_path(f), class: "btn btn-warning" %></td>
+	</tr>
+
+<% end %>
+<% end %>
+
+</table>

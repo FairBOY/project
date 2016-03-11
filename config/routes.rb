@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   devise_for :users, :path_prefix => 'my'
   resources :users
   resources :orders
-
   root "pages#index"
   get 'pages/about'
   get 'pages/contact'

@@ -1,12 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Project</title>
+  <title>Serwis</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<nav class="navbar navbar-inverse navbar-static-top">
+<div class="container-fluid">
+<div class="navbar-header">
+<ul class="nav navbar-nav">
+	<li><%= link_to "Home", root_path %></li>
+	<li><%= link_to "O nas", pages_about_path %></li>
+	<li><%= link_to "Częste pytania", pages_faqs_path %></li>
+	<li><%= link_to "Kontakt", pages_contact_path %></li>
+</ul>
+</div>
+<ul class="nav navbar-nav navbar-right">
+<% if user_signed_in? %>
+	<li><%= link_to current_user.first_name + " " + current_user.last_name, pages_profile_path %></li>
+	<li><%= link_to "Nowe zamówienie", orders_new_path %></li>
+<% if user_signed_in? and current_user.role == "user" %>
+	<li><%= link_to "Moje zamówienia",  orders_path %></li>
+	<% end %>
+	<li><%= link_to "Wyloguj", destroy_user_session_path, method: :delete %></li>
+	<% else %>
+	<li><%= link_to "Zaloguj się", new_user_session_path %></li>
+	<li><%= link_to "Rejestracja",  new_user_registration_path %></li>
+	<% end %>
+<% if user_signed_in? and current_user.role != "user" %>
+	<li><%= link_to "Panel administracyjny",  pages_panel_path %></li>
+	<% end %>
+</ul>
+</div>
+</nav>
 
 <%= yield %>
 
