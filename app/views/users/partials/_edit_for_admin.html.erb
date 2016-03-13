@@ -46,7 +46,7 @@
 <div class="form-group">
   <label class="col-md-offset-4 col-md-4">Rola:</label>
   <div class="col-md-offset-4 col-md-4">
-  <%= f.select(:role, options_for_select([['Wybierz rolę', @user.role], ['Użytkownik', 'user'], ['Serwisant', 'service'], ['Pracownik', 'repair'], ['Admin', 'admin']])) %>
+  <%= f.select(:role, options_for_select([['Wybierz rolę', @user.role], ['Użytkownik', 'user'], ['Obsługa', 'service'], ['Serwisant', 'repair'], ['Administrator', 'admin']])) %>
   </div>
 </div>
 <% end %>
