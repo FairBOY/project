@@ -56,10 +56,12 @@ class OrdersController < ApplicationController
 
 		if current_user.role == "service"
 			@order.update(odrer_params_for_service)
+			@order.update(service_id: current_user.id)
 		end
 
 		if current_user.role == "admin"
 			@order.update(odrer_params_for_admin)
+			@order.update(service_id: current_user.id)
 		end
 
 		if current_user.role == "repair"
